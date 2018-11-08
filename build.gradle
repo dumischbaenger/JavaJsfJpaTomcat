@@ -1,5 +1,6 @@
 plugins {
-  id "org.akhikhl.gretty" version "2.0.0"
+  id "org.gretty" version "2.2.0"
+  //id "org.akhikhl.gretty" version "2.0.0"
   id "java"
   id "groovy"
   id "eclipse" 
@@ -7,15 +8,49 @@ plugins {
 }
 
 
+def myOutputClassPath=file("${project.buildDir}/classes/main")
+def myOutputDir=file("${myOutputClassPath.absolutePath}/WEB-INF/classes")
+//def myOutputDir=file("${project.webAppDir.absolutePath}/WEB-INF/classes")
 
 repositories { 
   jcenter()
 }
 
+
+sourceSets {
+  main {
+    // Compiled Java classes should use this directory
+    //java.outputDir = file("${project.buildDir}/classes/main")
+    java.outputDir = myOutputDir
+  }
+}
+
 dependencies {
+  compile 'com.sun.faces:jsf-api:2.2.5'
+  compile 'com.sun.faces:jsf-impl:2.2.5'
   compile 'org.codehaus.groovy:groovy-all:2.4.13'
   compile "org.slf4j:slf4j-simple:1.7.25"
+  compile 'org.primefaces:primefaces:4.0'
 }
 
 
+gretty {
+  //httpPort = 8081
+  //contextPath = '/MyWebApp'
+  loggingLevel="TRACE"
+  // normaler weise erzeugt gretty ein Verzeichnis .../build/inplaceWebapp,
+  // leider werden in dieses Verzeichnis die Class Dateien nicht kopiert
+  // und sind deshalb fuer jetty nicht sichtbar
+  //inplaceMode="hard"
+  //println "${project.buildDir}/classes/main"
+  classPath myOutputClassPath.absolutePath
+  println "classpath: " + classPath
+  beforeClassPath "/tmp"
+}
+
+println "buildDir: ${project.buildDir}"
+//println "classpath: \n ${sourceSets.main.runtimeClasspath.join("\n  ")}"
+//sourceSets.main.runtimeClasspath.each { println it }
+//println "classPath: $classPath"
+println  "webAppDir: " + project.webAppDir
 
