@@ -37,15 +37,22 @@ dependencies {
 gretty {
   //httpPort = 8081
   //contextPath = '/MyWebApp'
-  loggingLevel="TRACE"
+//  loggingLevel="TRACE"
   // normaler weise erzeugt gretty ein Verzeichnis .../build/inplaceWebapp,
   // leider werden in dieses Verzeichnis die Class Dateien nicht kopiert
   // und sind deshalb fuer jetty nicht sichtbar
   //inplaceMode="hard"
-  //println "${project.buildDir}/classes/main"
+
+//  //variant hard mode
+//  inplaceMode="hard"
+//  classPath myOutputClassPath.absolutePath
+//  classPath project.webAppDir
+//  println "classpath: " + classPath
+
+  //variant soft mode
+  inplaceMode="soft"
   classPath myOutputClassPath.absolutePath
   println "classpath: " + classPath
-  beforeClassPath "/tmp"
 }
 
 println "buildDir: ${project.buildDir}"
