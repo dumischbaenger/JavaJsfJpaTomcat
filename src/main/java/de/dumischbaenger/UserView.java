@@ -1,18 +1,19 @@
 package de.dumischbaenger;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
+
 @ManagedBean(name = "userView")
 public class UserView implements Serializable {
 
-  private String  name  = "Johnvvvvvvvvvvvvv";
+  private String  name  = "John";
 
   public UserView() {
     super();
-    System.out.println("------------------------> userView");
   }
 
   @PostConstruct
@@ -20,7 +21,7 @@ public class UserView implements Serializable {
   }
 
   public String getName() {
-    return name;
+    return name + " " + new Date();
   }
 
   public void setName(String name) {
