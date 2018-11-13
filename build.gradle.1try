@@ -8,10 +8,36 @@ plugins {
 }
 
 
+def myOutputClassPath=file("${project.buildDir}/classes/main")
+def myOutputDir=file("${myOutputClassPath.absolutePath}/WEB-INF/classes")
+def tttDir=file("${project.buildDir}/inplaceWebapp/WEB-INF/classes")
+
 repositories { 
   jcenter()
 }
 
+
+//sourceSets {
+//  main {
+//    // Compiled Java classes should use this directory
+//    //java.outputDir = file("${project.buildDir}/classes/main")
+//    java.outputDir = myOutputDir
+//  }
+//  groovy {
+//    // Compiled Java classes should use this directory
+//    groovy.outputDir = myOutputDir
+//    java.outputDir = myOutputDir
+//  }
+//}
+
+
+//tasks.withType(GroovyCompile) {
+//    destinationDir=tttDir
+//}
+//
+//tasks.withType(JavaCompile) {
+//    destinationDir=tttDir
+//}
 
 dependencies {
   compile 'com.sun.faces:jsf-api:2.2.5'
@@ -22,12 +48,19 @@ dependencies {
 }
 
 task sync(type: Sync) {
-    from "$sourceSets.main.java.outputDir"
-    from "$sourceSets.main.groovy.outputDir"
+    doFirst {
+      println "-----------------first"
+    }
+    from "${project.buildDir}/classes/groovy/main"
+    from "${project.buildDir}/classes/java/main"
     into "${project.buildDir}/inplaceWebapp/WEB-INF/classes"
+    doLast {
+      println "-----------------last"
+    }
 }
 
 project.afterEvaluate {
+    println "xxxxx"
     appRun.dependsOn sync
 }
 

@@ -7,12 +7,12 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 
-@ManagedBean(name = "userView")
-public class UserView implements Serializable {
+@ManagedBean(name = "groovyUserView")
+public class GroovyUserView implements Serializable {
 
-  private String  name  = "Java John";
+  private String  name  = "Groovy xxxx John";
 
-  public UserView() {
+  public GroovyUserView() {
     super();
   }
 
