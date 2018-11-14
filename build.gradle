@@ -54,6 +54,10 @@ gretty {
   inplaceMode="soft"
 //  classPath myOutputClassPath.absolutePath
   println "classpath: " + classPath
+  
+  realm 'TestRealm'
+  realmConfigFile 'jetty-realm.properties'
+
 }
 
 
