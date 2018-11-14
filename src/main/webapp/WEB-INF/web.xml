@@ -37,6 +37,17 @@
 	<listener>
 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 	</listener>
+	
+    <!-- deny access to all URLs that do not have a mapping -->
+    <security-constraint>
+      <display-name>Restrict direct access to certain folders</display-name>
+       <web-resource-collection>
+        <web-resource-name>Restricted folders</web-resource-name>
+        <url-pattern>/*</url-pattern>
+       </web-resource-collection>
+       <auth-constraint />
+    </security-constraint>	
+	
 	<security-constraint>
      <web-resource-collection>
           <web-resource-name>protectedFaces</web-resource-name>
