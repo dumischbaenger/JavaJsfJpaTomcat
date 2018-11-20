@@ -68,10 +68,8 @@
           <transport-guarantee>NONE</transport-guarantee>
      </user-data-constraint>
     </security-constraint>
-    <!--
     <login-config>
      <auth-method>BASIC</auth-method>
-       <realm-name>TestRealm</realm-name>
+       <realm-name>MyHashRealm</realm-name>
     </login-config>
-    -->
 </web-app>

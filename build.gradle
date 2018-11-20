@@ -31,6 +31,22 @@ project.afterEvaluate {
     appRun.dependsOn sync
 }
 
+def jettyDir="/opt/jetty"
+
+task jr (type: Exec) {
+  group "BET"
+  description "build project and start jetty"
+  dependsOn war
+  def script=""" 
+    cp "${project.buildDir}/libs/JavaADJSFSample.war" "${jettyDir}/webapps"
+    cd "$jettyDir"
+    
+"""
+  executable "bash"
+  workingDir=new File(jettyDir)
+  args "-x", "-c", script
+}
+
 gretty {
   
   //BD App erreichbar unter
