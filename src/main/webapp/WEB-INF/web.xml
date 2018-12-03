@@ -70,6 +70,6 @@
     </security-constraint>
     <login-config>
      <auth-method>BASIC</auth-method>
-       <realm-name>MyHashRealm</realm-name>
+       <realm-name>MyJAASRealm</realm-name>
     </login-config>
 </web-app>
