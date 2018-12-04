@@ -39,6 +39,7 @@
 	</listener>
 	
     <!-- deny access to all URLs that do not have a mapping -->
+    <!--
     <security-constraint>
       <display-name>Restrict direct access to certain folders</display-name>
        <web-resource-collection>
@@ -47,6 +48,8 @@
        </web-resource-collection>
        <auth-constraint />
     </security-constraint>	
+    -->
+	
 	
 	<security-constraint>
      <web-resource-collection>
@@ -62,12 +65,19 @@
            constraint for protected faces
           </description>
           <role-name>testuser</role-name>
+          <role-name>Abteilung_Sekretariat</role-name>
      </auth-constraint>
      <user-data-constraint>
           <description>SSL not required</description>
           <transport-guarantee>NONE</transport-guarantee>
      </user-data-constraint>
     </security-constraint>
+    <security-role>
+      <role-name>testuser</role-name>
+    </security-role>
+    <security-role>
+      <role-name>Abteilung_Sekretariat</role-name>
+    </security-role>
     <login-config>
      <auth-method>BASIC</auth-method>
        <realm-name>MyJAASRealm</realm-name>
