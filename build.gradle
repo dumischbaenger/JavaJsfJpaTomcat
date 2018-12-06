@@ -14,11 +14,12 @@ repositories {
 
 
 dependencies {
-  compile 'com.sun.faces:jsf-api:2.2.5'
-  compile 'com.sun.faces:jsf-impl:2.2.5'
+  compile 'com.sun.faces:jsf-api:2.2.18'
+  compile 'com.sun.faces:jsf-impl:2.2.18'
   compile 'org.codehaus.groovy:groovy-all:2.4.13'
   compile "org.slf4j:slf4j-simple:1.7.25"
-  compile 'org.primefaces:primefaces:4.0'
+//  compile 'org.primefaces:primefaces:4.0'
+  compile 'org.primefaces:primefaces:6.2'
 
   //BD fuer JAVA 10 - Java 10 SE hat manche API nicht mehr  
   compile 'javax.xml.bind:jaxb-api:2.2.11'
