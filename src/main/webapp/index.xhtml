@@ -12,7 +12,7 @@
 	<h1>Hello World</h1>
 	<h:form>
 		<p><h:outputText value="Hello #{groovyUserView.name} !!!"/></p>
-		<a onclick="dialog.show();" href="#">
+		<a onclick="PF('dialog').show();" href="#">
 			<h:outputText value="Open primefaces dialog" />
 		</a>
 	</h:form>
@@ -24,7 +24,7 @@
 			<h:outputText value="Test dialog" />
 		</div>
 		<div>
-			<a href="#" onclick="dialog.hide()"><h:outputText value="Close" /></a>
+			<a href="#" onclick="PF('dialog').hide()"><h:outputText value="Close" /></a>
 		</div>
  	</p:dialog>
 </h:body>
