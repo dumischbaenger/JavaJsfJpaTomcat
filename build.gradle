@@ -1,6 +1,4 @@
 plugins {
-  id "org.gretty" version "2.2.0"
-  //id "org.akhikhl.gretty" version "2.0.0"
   id "java"
   id "groovy"
   id "eclipse" 
@@ -35,7 +33,7 @@ task sync(type: Sync) {
 }
 
 project.afterEvaluate {
-    appRun.dependsOn sync
+    //appRun.dependsOn sync
 }
 
 def jettyDir="/opt/jetty"
@@ -47,42 +45,12 @@ task jr (type: Exec) {
   def script=""" 
     cp "${project.buildDir}/libs/JavaADJSFSample.war" "${jettyDir}/webapps"
     cd "$jettyDir"
-    
+    ./bin/jetty.sh check || ./bin/jetty.sh start
 """
   executable "bash"
   workingDir=new File(jettyDir)
   args "-x", "-c", script
 }
-
-gretty {
-  
-  //BD App erreichbar unter
-  // http://localhost:8080/JavaADJSFSample/faces/index.xhtml#
-  
-  //httpPort = 8081
-  //contextPath = '/MyWebApp'
-//  loggingLevel="TRACE"
-  // normaler weise erzeugt gretty ein Verzeichnis .../build/inplaceWebapp,
-  // leider werden in dieses Verzeichnis die Class Dateien nicht kopiert
-  // und sind deshalb fuer jetty nicht sichtbar
-  //inplaceMode="hard"
-
-//  //variant hard mode
-//  inplaceMode="hard"
-//  classPath myOutputClassPath.absolutePath
-//  classPath project.webAppDir
-//  println "classpath: " + classPath
-
-  //variant soft mode
-  inplaceMode="soft"
-//  classPath myOutputClassPath.absolutePath
-  println "classpath: " + classPath
-  
-  realm 'TestRealm'
-  realmConfigFile 'jetty-realm.properties'
-
-}
-
 
 println "buildDir: ${project.buildDir}"
 //println "classpath: \n ${sourceSets.main.runtimeClasspath.join("\n  ")}"
