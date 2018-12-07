@@ -7,25 +7,30 @@ plugins {
 
 
 repositories { 
-  jcenter()
+  maven {
+    url "http://repository.primefaces.org"
+  }
+  mavenCentral()
+  //jcenter() //BD jcenter has no themes
 }
 
 
 dependencies {
-  compile 'com.sun.faces:jsf-api:2.2.18'
-  compile 'com.sun.faces:jsf-impl:2.2.18'
-  compile 'org.codehaus.groovy:groovy-all:2.4.13'
-  compile "org.slf4j:slf4j-simple:1.7.25"
-//  compile 'org.primefaces:primefaces:4.0'
-  compile 'org.primefaces:primefaces:6.2'
-
+  implementation 'com.sun.faces:jsf-api:2.2.18'
+  implementation 'com.sun.faces:jsf-impl:2.2.18'
+  implementation 'org.codehaus.groovy:groovy-all:2.4.13'
+  implementation "org.slf4j:slf4j-simple:1.7.25"
+  implementation 'org.primefaces:primefaces:6.2'
+  implementation 'org.primefaces.themes:cupertino:1.0.10'
+//  compile group: 'org.primefaces.themes', name: 'cupertino', version: '1.0.10'
+  
   //BD fuer JAVA 10 - Java 10 SE hat manche API nicht mehr  
   compile 'javax.xml.bind:jaxb-api:2.2.11'
   compile 'com.sun.xml.bind:jaxb-core:2.2.11'
   compile 'com.sun.xml.bind:jaxb-impl:2.2.11'
   compile 'javax.activation:activation:1.1.1'
   compile 'javax.annotation:javax.annotation-api:1.3.2'
-  providedCompile 'javax.servlet:servlet-api:2.5'
+  providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
 }
 
 task sync(type: Sync) {
@@ -47,7 +52,7 @@ task jr (type: Exec) {
   def script=""" 
     cp "${project.buildDir}/libs/JavaADJSFSample.war" "${jettyDir}/webapps"
     cd "$jettyDir"
-    ./bin/jetty.sh check || ./bin/jetty.sh start
+    #./bin/jetty.sh check || ./bin/jetty.sh start
 """
   executable "bash"
   workingDir=new File(jettyDir)
