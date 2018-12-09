@@ -1,41 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
-<h:head>
-<!-- 
-<h:outputStylesheet name="theme.css" library="cupertino"/>
--->
-</h:head>
-<h:body>
-<p:layout style="min-width:400px;min-height:200px;">
-    <p:layoutUnit position="north" resizable="true" size="100" minSize="40" maxSize="200">
-  	<h1>Hello World</h1>
-    </p:layoutUnit>
- 
-    <p:layoutUnit position="center">
-	<h:form>
-		<p><h:outputText value="Hello #{groovyUserView.name} !!!"/></p>
-		<a onclick="PF('dialog').show();" href="#">
-			<h:outputText value="Open primefaces dialog" />
-		</a>
-	</h:form>
-    </p:layoutUnit>
-</p:layout>
- 	<p:dialog widgetVar="dialog">
- 		<f:facet name="header">
-            <h:outputText value="Dialog" />
-		</f:facet>
-		<div>
-			<h:outputText value="Test dialog" />
-		</div>
-		<div>
-			<a href="#" onclick="PF('dialog').hide()"><h:outputText value="Close" /></a>
-		</div>
- 	</p:dialog>
-</h:body>
-</html>
+	xmlns:p="http://primefaces.org/ui"
+	template="WEB-INF/templates/defaultTemplate.xhtml">
+	
+	<ui:define name="content">
+	blabloabla
+	</ui:define>
+</ui:composition>
