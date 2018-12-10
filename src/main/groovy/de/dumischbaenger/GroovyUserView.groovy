@@ -7,7 +7,7 @@ import javax.faces.context.FacesContext
 import javax.servlet.http.HttpSession
 
 @SessionScoped
-@ManagedBean(name = "groovyUserView")
+@ManagedBean(name = "UserData")
 public class GroovyUserView implements Serializable {
 
   private count=0;
@@ -29,8 +29,9 @@ public class GroovyUserView implements Serializable {
     Object username=session.getAttribute("de.dumischbaenger.jetty.username");
     Object password=session.getAttribute("de.dumischbaenger.jetty.password");
 
-    String result= count++ + " " +  username + " " + new Date() + " " + password.toString().charAt(0);
-
+    //String result= count++ + " " +  username + " " + new Date() + " " + password.toString().charAt(0);
+	String result=username;
+	
     return result;
   }
 

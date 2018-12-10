@@ -2,42 +2,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:h="http://java.sun.com/jsf/html"
-  xmlns:f="http://java.sun.com/jsf/core"
-  xmlns:ui="http://java.sun.com/jsf/facelets"
-  xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-  <!-- 
+<!-- 
 <h:outputStylesheet name="theme.css" library="cupertino"/>
 -->
 </h:head>
 <h:body>
-  <p:layout fullPage="true">
-    <p:layoutUnit position="north">
-    <!-- 
-     -->
-      <h2>
-        PF Tutorial (
-        <h:outputText value="#{UserData.name}" />
-        )
-      </h2>
-     </p:layoutUnit>
+<p:layout fullPage="true">
+    <p:layoutUnit position="north" resizable="true" size="100" minSize="40" maxSize="200">
+  	<h1>Hello World</h1>
+    </p:layoutUnit>
 
     <p:layoutUnit position="west">
-      <h:form>
-        <div id="topMenu">
-          <ui:insert name="topMenu">
-          </ui:insert>
-        </div>
-
-        <p:menu>
-          <p:submenu label="Departments">
-            <p:menuitem value="Customer"
-              url="../customer/customer.xhtml" />
-          </p:submenu>
-        </p:menu>
-
-        <!-- 
+    <h:form>
+    <p:menu>
+        <p:submenu label="Customer">
+            <p:menuitem value="Save"   icon="fa fa-save fa-fw"/>
+            <p:menuitem value="Reload" icon="fa fa-refresh fa-fw"/>
+        </p:submenu>
+    </p:menu>
+    
+    <!-- 
     <p:menu>
         <p:submenu label="Ajax">
             <p:menuitem value="Save" action="#{menuView.save}" update="messages" icon="pi pi-save" />
@@ -52,15 +41,15 @@
         </p:submenu>
     </p:menu>
      -->
-      </h:form>
+    </h:form>
     </p:layoutUnit>
-
+ 
     <p:layoutUnit position="center">
       <div id="content">
         <ui:insert name="content">
         </ui:insert>
       </div>
     </p:layoutUnit>
-  </p:layout>
+</p:layout>
 </h:body>
 </html>
