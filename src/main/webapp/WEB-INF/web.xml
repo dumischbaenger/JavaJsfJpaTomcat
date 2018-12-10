@@ -14,11 +14,11 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>/faces/*</url-pattern>
+		<url-pattern>/unprotected/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>/protected_faces/*</url-pattern>
+		<url-pattern>/customer/*</url-pattern>
 	</servlet-mapping>
 	<context-param>
 		<description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
@@ -33,6 +33,10 @@
 		<param-name>primefaces.THEME</param-name>
 		<param-value>cupertino</param-value>
 	</context-param>
+	<context-param>
+    <param-name>primefaces.FONT_AWESOME</param-name>
+    <param-value>true</param-value>
+</context-param>
 	<listener>
 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 	</listener>
@@ -57,7 +61,7 @@
              Security constraint for
              resources in the orders/east directory
           </description>
-          <url-pattern>/protected_faces/*</url-pattern>
+          <url-pattern>/customer/*</url-pattern>
      </web-resource-collection>
      <auth-constraint>
           <description>
