@@ -14,14 +14,14 @@
 <h:body>
   <p:layout fullPage="true">
     <p:layoutUnit position="north">
-    <!-- 
-     -->
-      <h2>
-        PF Tutorial (
-        <h:outputText value="#{UserData.name}" />
-        )
-      </h2>
-     </p:layoutUnit>
+      <p:panelGrid style="width:100%">
+        <p:row>
+          <p:column style="text-align:left;width:33%;border-width:0px;">PF Tutorial</p:column>
+          <p:column style="text-align:center;width:33%;border-width:0px;"><h:outputText value="#{UserData.name}"/></p:column>
+          <p:column style="text-align:right;width:33%;border-width:0px;"></p:column>
+        </p:row>
+      </p:panelGrid>
+    </p:layoutUnit>
 
     <p:layoutUnit position="west">
       <h:form>
