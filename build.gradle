@@ -22,6 +22,7 @@ dependencies {
   implementation "org.slf4j:slf4j-simple:1.7.25"
   implementation 'org.primefaces:primefaces:6.2'
   implementation 'org.primefaces.themes:cupertino:1.0.10'
+  providedCompile 'javax:javaee-api:7.0'
 //  compile group: 'org.primefaces.themes', name: 'cupertino', version: '1.0.10'
   
   //BD fuer JAVA 10 - Java 10 SE hat manche API nicht mehr  

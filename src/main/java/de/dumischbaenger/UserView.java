@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 
 
 @ManagedBean(name = "userView")
-public class UserView implements Serializable {
+public class UserView implements Serializable { 
 
   private String  name  = "Java John";
 

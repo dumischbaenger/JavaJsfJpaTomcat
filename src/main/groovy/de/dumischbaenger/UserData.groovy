@@ -2,17 +2,18 @@ package de.dumischbaenger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped
 import javax.faces.bean.SessionScoped
 import javax.faces.context.FacesContext
 import javax.servlet.http.HttpSession
 
-@SessionScoped
+@RequestScoped
 @ManagedBean(name = "UserData")
-public class GroovyUserView implements Serializable {
+public class UserData implements Serializable {
 
   private count=0;
 
-  public GroovyUserView() {
+  public UserData() {
     super();
   }
 
