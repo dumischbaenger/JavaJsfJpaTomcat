@@ -16,8 +16,8 @@ repositories {
 
 
 dependencies {
-  implementation 'com.sun.faces:jsf-api:2.2.18'
-  implementation 'com.sun.faces:jsf-impl:2.2.18'
+  providedCompile 'com.sun.faces:jsf-api:2.2.18'
+  providedCompile 'com.sun.faces:jsf-impl:2.2.18'
   implementation 'org.codehaus.groovy:groovy-all:2.4.13'
   implementation "org.slf4j:slf4j-simple:1.7.25"
   implementation 'org.primefaces:primefaces:6.2'
