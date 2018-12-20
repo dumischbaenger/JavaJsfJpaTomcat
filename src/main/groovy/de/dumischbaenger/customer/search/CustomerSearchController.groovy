@@ -1,7 +1,7 @@
 package de.dumischbaenger.customer.search;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.SessionScoped
+import javax.enterprise.context.SessionScoped
 import javax.faces.context.FacesContext
 import javax.inject.Named
 import javax.servlet.http.HttpSession
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession
 import de.dumischbaenger.customer.Pages
 
 @SessionScoped
-@Named
+@Named("csc")
 public class CustomerSearchController implements Serializable {
 
   public CustomerSearchController() {
@@ -17,6 +17,8 @@ public class CustomerSearchController implements Serializable {
   }
   
   public String doSearch() {
+    
+    println("I do my search now!")
     return Pages.CUSTOMER_LIST
   }
 
