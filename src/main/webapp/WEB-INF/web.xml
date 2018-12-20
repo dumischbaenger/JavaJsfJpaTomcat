@@ -1,88 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	id="WebApp_ID" version="3.0">
-	<display-name>demo3</display-name>
-	<welcome-file-list>
-		<welcome-file>index.xhtml</welcome-file>
-	</welcome-file-list>
-	<servlet>
-		<servlet-name>Faces Servlet</servlet-name>
-		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>/unprotected/*</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>/customer/*</url-pattern>
-	</servlet-mapping>
-	<context-param>
-		<description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
-		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-		<param-value>client</param-value>
-	</context-param>
-	<context-param>
-		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
-		<param-value>resources.application</param-value>
-	</context-param>
-	<context-param>
-		<param-name>primefaces.THEME</param-name>
-		<param-value>cupertino</param-value>
-	</context-param>
-	<context-param>
+  xmlns="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  id="WebApp_ID" version="3.0">
+  <display-name>demo3</display-name>
+  <welcome-file-list>
+    <welcome-file>index.xhtml</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>/unprotected/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>/customer/*</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
+    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+    <param-value>client</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+    <param-value>resources.application</param-value>
+  </context-param>
+  <context-param>
+    <param-name>primefaces.THEME</param-name>
+    <param-value>cupertino</param-value>
+  </context-param>
+  <context-param>
     <param-name>primefaces.FONT_AWESOME</param-name>
     <param-value>true</param-value>
-</context-param>
-	<listener>
-		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
-	</listener>
-	
-    <!-- deny access to all URLs that do not have a mapping -->
-    <!--
-    <security-constraint>
-      <display-name>Restrict direct access to certain folders</display-name>
-       <web-resource-collection>
-        <web-resource-name>Restricted folders</web-resource-name>
-        <url-pattern>/*</url-pattern>
-       </web-resource-collection>
-       <auth-constraint />
-    </security-constraint>	
-    -->
-	
-	
-	<security-constraint>
-     <web-resource-collection>
-          <web-resource-name>protectedFaces</web-resource-name>
-          <description>
+  </context-param>
+  <listener>
+    <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+  </listener>
+
+  <!-- deny access to all URLs that do not have a mapping -->
+  <!-- <security-constraint> <display-name>Restrict direct access to certain 
+    folders</display-name> <web-resource-collection> <web-resource-name>Restricted 
+    folders</web-resource-name> <url-pattern>/*</url-pattern> </web-resource-collection> 
+    <auth-constraint /> </security-constraint> -->
+
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>protectedFaces</web-resource-name>
+      <description>
              Security constraint for
              resources in the orders/east directory
           </description>
-          <url-pattern>/customer/*</url-pattern>
-     </web-resource-collection>
-     <auth-constraint>
-          <description>
+      <url-pattern>/customer/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <description>
            constraint for protected faces
           </description>
-          <role-name>testuser</role-name>
-          <role-name>Abteilung_Sekretariat</role-name>
-     </auth-constraint>
-     <user-data-constraint>
-          <description>SSL not required</description>
-          <transport-guarantee>NONE</transport-guarantee>
-     </user-data-constraint>
-    </security-constraint>
-    <security-role>
       <role-name>testuser</role-name>
-    </security-role>
-    <security-role>
       <role-name>Abteilung_Sekretariat</role-name>
-    </security-role>
-    <login-config>
-     <auth-method>BASIC</auth-method>
-       <realm-name>MyJAASRealm</realm-name>
-    </login-config>
+    </auth-constraint>
+    <user-data-constraint>
+      <description>SSL not required</description>
+      <transport-guarantee>NONE</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  <security-role>
+    <role-name>testuser</role-name>
+  </security-role>
+  <security-role>
+    <role-name>Abteilung_Sekretariat</role-name>
+  </security-role>
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>MyJAASRealm</realm-name>
+  </login-config>
+
+  <!-- CDI Weld setup -->
+  <listener>
+    <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+  </listener>
+
+  <resource-env-ref>
+    <description>Object factory for the CDI Bean Manager</description>
+    <resource-env-ref-name>BeanManager</resource-env-ref-name>
+    <resource-env-ref-type>javax.enterprise.inject.spi.BeanManager</resource-env-ref-type>
+  </resource-env-ref>
+  <!-- 
+   -->
 </web-app>
