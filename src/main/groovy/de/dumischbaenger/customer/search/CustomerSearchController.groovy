@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession
 import de.dumischbaenger.customer.Pages
 
 @SessionScoped
-@Named("csc")
+@Named("customerSearchController")
 public class CustomerSearchController implements Serializable {
 
   public CustomerSearchController() {

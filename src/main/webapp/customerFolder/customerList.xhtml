@@ -6,12 +6,12 @@
   xmlns:f="http://java.sun.com/jsf/core"
   xmlns:ui="http://java.sun.com/jsf/facelets"
   xmlns:p="http://primefaces.org/ui"
-  template="WEB-INF/templates/defaultTemplate.xhtml">
+  template="/WEB-INF/templates/defaultTemplate.xhtml">
 
   <ui:define name="topMenu">
     <p:menu>
       <p:submenu label="Customer">
-        <p:menuitem value="Search" icon="fa fa-search fa-fw" action="#{csc.doSearch()}"/>
+        <p:menuitem value="Search" icon="fa fa-search fa-fw" action="#{customerSearchController.doSearch()}"/>
         <p:menuitem value="Save" icon="fa fa-save fa-fw" />
         <p:menuitem value="Reload" icon="fa fa-refresh fa-fw" />
       </p:submenu>
@@ -19,18 +19,6 @@
   </ui:define>
 
   <ui:define name="content">
-    <h1>administer your customers here</h1>
-         <div class="p-grid  p-dir-col">
-        <div class="p-col">
-          <div class="box">1</div>
-        </div>
-        <div class="p-col">
-          <div class="box">2</div>
-        </div>
-        <div class="p-col">
-          <div class="box">3</div>
-        </div>
-      </div>
-    
+    <h1>here is your customer list</h1>
   </ui:define>
 </ui:composition>

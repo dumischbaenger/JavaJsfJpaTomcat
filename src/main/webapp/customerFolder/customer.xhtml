@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui"
+  template="/WEB-INF/templates/defaultTemplate.xhtml">
+
+  <ui:define name="topMenu">
+    <p:menu>
+      <p:submenu label="Customer">
+        <p:menuitem value="Search" icon="fa fa-search fa-fw" action="#{customerSearchController.doSearch()}"/>
+        <p:menuitem value="Save" icon="fa fa-save fa-fw" />
+        <p:menuitem value="Reload" icon="fa fa-refresh fa-fw" />
+      </p:submenu>
+    </p:menu>
+  </ui:define>
+
+  <ui:define name="content">
+    <h1>administer your customers here</h1>
+         <div class="p-grid  p-dir-col">
+        <div class="p-col">
+          <div class="box">1</div>
+        </div>
+        <div class="p-col">
+          <div class="box">2</div>
+        </div>
+        <div class="p-col">
+          <div class="box">3</div>
+        </div>
+      </div>
+    
+  </ui:define>
+</ui:composition>
