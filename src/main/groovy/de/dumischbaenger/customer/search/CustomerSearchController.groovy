@@ -11,6 +11,7 @@ import de.dumischbaenger.customer.Pages
 @SessionScoped
 @Named("customerSearchController")
 public class CustomerSearchController implements Serializable {
+  String searchCustomerName="searchName"
 
   public CustomerSearchController() {
     super();

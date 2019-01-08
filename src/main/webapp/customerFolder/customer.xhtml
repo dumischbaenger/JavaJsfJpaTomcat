@@ -19,6 +19,10 @@
   </ui:define>
 
   <ui:define name="content">
+    <h:form>
+      <h:inputText id="searchCustomerName" value="#{customerSearchController.searchCustomerName}"/>
+      <h:commandButton value="Suchen" action="#{customerSearchController.doSearch()}"/>
+    </h:form>
     <h1>administer your customers here</h1>
          <div class="p-grid  p-dir-col">
         <div class="p-col">
