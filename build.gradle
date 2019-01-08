@@ -11,7 +11,6 @@ repositories {
     url "http://repository.primefaces.org"
   }
   mavenCentral()
-  //jcenter() //BD jcenter has no themes
 }
 
 
