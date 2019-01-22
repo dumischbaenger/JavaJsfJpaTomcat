@@ -1,10 +1,10 @@
 package de.dumischbaenger.customer.search;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped
-import javax.faces.context.FacesContext
 import javax.inject.Named
-import javax.servlet.http.HttpSession
+import javax.persistence.EntityManager
+import javax.persistence.EntityManagerFactory
+import javax.persistence.Persistence
 
 import de.dumischbaenger.customer.Pages
 
@@ -20,6 +20,9 @@ public class CustomerSearchController implements Serializable {
   public String doSearch() {
     
     println("I do my search now!")
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("exampledb");
+    EntityManager em = emf.createEntityManager();
+
     return Pages.CUSTOMER_LIST
   }
 

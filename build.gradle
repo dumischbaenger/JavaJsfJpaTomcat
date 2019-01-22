@@ -28,6 +28,8 @@ dependencies {
   compile 'com.sun.xml.bind:jaxb-impl:2.2.11'
   compile 'javax.activation:activation:1.1.1'
   compile 'javax.annotation:javax.annotation-api:1.3.2'
+  compile 'org.apache.derby:derby:10.14.1.0'
+  compile 'org.hibernate:hibernate-entitymanager:5.2.13.Final'
   providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
   providedCompile 'javax:javaee-api:7.0'
 }
@@ -48,9 +50,12 @@ task jr (type: Exec) {
   group "BET"
   description "build project and start jetty"
   dependsOn war
+  
+  //BD strange behavior of jetty: if jandex... is in the jar file jetty throws an exception
   def script=""" 
     cp "${project.buildDir}/libs/JavaADJSFSample.war" "${jettyDir}/webapps"
     cd "$jettyDir"
+    zip -d webapps/JavaADJSFSample.war WEB-INF/lib/jandex-2.0.3.Final.jar
     #./bin/jetty.sh check || ./bin/jetty.sh start
 """
   executable "bash"
