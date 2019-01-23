@@ -9,7 +9,6 @@ import javax.persistence.Id
 import javax.persistence.SequenceGenerator
 
 @Entity
-@Access(AccessType.PROPERTY)  
 class Customer {
 
   @Id 

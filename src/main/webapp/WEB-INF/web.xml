@@ -70,6 +70,7 @@
           </description>
       <role-name>testuser</role-name>
       <role-name>Abteilung_Sekretariat</role-name>
+      <role-name>Abteilung_IT</role-name>
     </auth-constraint>
     <user-data-constraint>
       <description>SSL not required</description>
