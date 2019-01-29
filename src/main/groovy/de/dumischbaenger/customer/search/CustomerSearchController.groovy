@@ -1,17 +1,22 @@
 package de.dumischbaenger.customer.search;
 
 import javax.enterprise.context.SessionScoped
+import javax.inject.Inject
 import javax.inject.Named
 import javax.persistence.EntityManager
 import javax.persistence.EntityManagerFactory
 import javax.persistence.Persistence
 
 import de.dumischbaenger.customer.Pages
+import de.dumischbaenger.dbtools.DbAccess
 
 @SessionScoped
 @Named("customerSearchController")
 public class CustomerSearchController implements Serializable {
   String searchCustomerName="searchName"
+  
+  @Inject
+  DbAccess dbAccess;
 
   public CustomerSearchController() {
     super();
@@ -19,10 +24,12 @@ public class CustomerSearchController implements Serializable {
   
   public String doSearch() {
     
-    println("I do my search now!")
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("exampledb");
-    EntityManager em = emf.createEntityManager();
+    println("\n\nI do my search now 1\n\n")
 
+    EntityManager em=dbAccess.getEntityManager()
+    
+    println("\n\nI do my search now 2\n\n")
+    
     return Pages.CUSTOMER_LIST
   }
 
