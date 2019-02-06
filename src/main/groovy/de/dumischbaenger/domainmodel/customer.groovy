@@ -19,5 +19,5 @@ class Customer {
   Integer age 
   Integer gender
 
-  String toString() { "$id $name : age $age, gender $gender" }
+  String toString() { "Customer: id:$id, name:$name, age:$age, gender:$gender" }
 }

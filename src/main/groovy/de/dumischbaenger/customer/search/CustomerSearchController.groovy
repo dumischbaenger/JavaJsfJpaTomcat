@@ -9,28 +9,29 @@ import javax.persistence.Persistence
 
 import de.dumischbaenger.customer.Pages
 import de.dumischbaenger.dbtools.DbAccess
+import de.dumischbaenger.domainmodel.Customer
 
 @SessionScoped
 @Named("customerSearchController")
 public class CustomerSearchController implements Serializable {
   String searchCustomerName="searchName"
-  
+	
   @Inject
-  DbAccess dbAccess;
+  DbAccess dbAccess
+  
 
   public CustomerSearchController() {
     super();
   }
+ 
   
   public String doSearch() {
-    
-    println("\n\nI do my search now 1\n\n")
+	
+	println("\n\nSearch now\n\n")
 
-    EntityManager em=dbAccess.getEntityManager()
-    
-    println("\n\nI do my search now 2\n\n")
-    
-    return Pages.CUSTOMER_LIST
+	EntityManager em=dbAccess.getEntityManager()
+	
+	return Pages.CUSTOMER_LIST
   }
 
  }

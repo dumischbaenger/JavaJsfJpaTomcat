@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+  template="/WEB-INF/templates/defaultTemplate.xhtml">
+
+  <ui:define name="topMenu">
+    <p:menu>
+      <p:submenu label="Customer">
+        <p:menuitem value="Search" icon="fa fa-search fa-fw"
+          action="#{customerSearchController.doSearch()}" />
+        <p:menuitem value="New" icon="fa fa-file fa-fw" />
+        <p:menuitem value="Save" icon="fa fa-save fa-fw" />
+        <p:menuitem value="Reload" icon="fa fa-refresh fa-fw" />
+      </p:submenu>
+    </p:menu>
+  </ui:define>
+
+  <ui:define name="content">
+    <h:form>
+      <p:panelGrid columns="2">
+        <f:facet name="header">
+          create new customer
+        </f:facet>
+
+        <h:outputText value="Name:" />
+        <p:inputText value="#{customerCreateController.customer.name}"
+          pt:placeholder="enter name here" />
+
+        <h:outputText value="Age:" />
+        <p:inputNumber value="#{customerCreateController.customer.age}"
+          pt:placeholder="enter age here" />
+
+        <h:outputText value="Gender:" />
+        <p:selectOneMenu id="console"
+          value="#{customerCreateController.customer.gender}"
+          style="width:125px">
+          <f:selectItem itemLabel="Select One" itemValue="" />
+          <f:selectItem itemLabel="man" itemValue="0" />
+          <f:selectItem itemLabel="woman" itemValue="1" />
+        </p:selectOneMenu>
+        <f:facet name="footer">
+        <p:outputPanel style="float: right">
+          <p:commandButton type="button" value="Save" icon="fa fa-save" />
+        </p:outputPanel>
+        </f:facet>
+      </p:panelGrid>
+    </h:form>
+  </ui:define>
+</ui:composition>
