@@ -9,6 +9,7 @@ import javax.persistence.Persistence
 
 import de.dumischbaenger.customer.Pages
 import de.dumischbaenger.dbtools.DbAccess
+import de.dumischbaenger.dbtools.DbCustomerService
 import de.dumischbaenger.domainmodel.Customer
 
 @SessionScoped
@@ -16,7 +17,7 @@ import de.dumischbaenger.domainmodel.Customer
 public class CustomerCreateController implements Serializable {
   
   @Inject
-  DbAccess dbAccess;
+  DbCustomerService dbCustomerService;
 
   Customer customer
   
@@ -34,5 +35,13 @@ public class CustomerCreateController implements Serializable {
 	
 	return Pages.CUSTOMER_CREATE
   }
-
+  public String doSave() {
+	  
+	  println("\n\nSave customer\n\n")
+	  
+	  dbCustomerService.saveCustomer(customer)
+	  
+	  return Pages.CUSTOMER_LIST
+	}
+  
  }

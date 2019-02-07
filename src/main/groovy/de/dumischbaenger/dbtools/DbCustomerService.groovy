@@ -7,6 +7,8 @@ import javax.persistence.EntityManager
 import javax.persistence.EntityTransaction
 import javax.persistence.Persistence
 
+import de.dumischbaenger.domainmodel.Customer
+
 
 @SessionScoped
 @Named("dbCustomerService")
@@ -53,18 +55,21 @@ public class DbCustomerService implements Serializable {
 //    p
 //  }
 //  
-//  Person savePerson(Person p) {
-//    log.info("save person: $p")
-//    entityManagerHandler.withEntityManager("exampledb"){
-//      String persistenceUnitName, EntityManager entityManager ->
-//      EntityTransaction tx=entityManager.getTransaction()
-//      tx.begin()
-//      entityManager.persist(p)
-//      tx.commit()
-//    }
-//
-//    p
-//  }
+  
+  Customer saveCustomer(Customer c) {
+//    log.info("save person: $c")
+	
+	println("\n\nSave customer\n\n")
+	
+	EntityManager entityManager=dbAccess.entityManager
+    EntityTransaction tx=entityManager.getTransaction()
+    tx.begin()
+    entityManager.persist(c)
+    tx.commit()
+
+    c
+  }
+  
 //  void removePerson(Person p) {
 //    log.info("removePerson person: $p")
 //

@@ -46,7 +46,7 @@
         </p:selectOneMenu>
         <f:facet name="footer">
         <p:outputPanel style="float: right">
-          <p:commandButton type="button" value="Save" icon="fa fa-save" />
+          <p:commandButton value="Save" icon="fa fa-save" action="#{customerCreateController.doSave}" ajax="false" />
         </p:outputPanel>
         </f:facet>
       </p:panelGrid>
