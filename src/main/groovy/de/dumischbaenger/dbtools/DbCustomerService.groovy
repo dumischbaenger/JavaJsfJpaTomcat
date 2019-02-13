@@ -25,7 +25,7 @@ public class DbCustomerService implements Serializable {
 //    log.info("search criteria: $searchCriteria")
     List customer=[]
 
-    String query="select p from Person p where 1=1 "
+    String query="select c from Customer c where 1=1 "
     searchCriteria.each{
       key, value ->
       if(value) {

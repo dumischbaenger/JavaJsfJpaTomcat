@@ -9,6 +9,7 @@ import javax.persistence.Persistence
 
 import de.dumischbaenger.customer.Pages
 import de.dumischbaenger.dbtools.DbAccess
+import de.dumischbaenger.dbtools.DbCustomerService
 import de.dumischbaenger.domainmodel.Customer
 
 @SessionScoped
@@ -17,8 +18,7 @@ public class CustomerSearchController implements Serializable {
   String searchCustomerName="searchName"
 	
   @Inject
-  DbAccess dbAccess
-  
+  DbCustomerService dbCustomerService;
 
   public CustomerSearchController() {
     super();
@@ -28,9 +28,14 @@ public class CustomerSearchController implements Serializable {
   public String doSearch() {
 	
 	println("\n\nSearch now\n\n")
-
-	EntityManager em=dbAccess.getEntityManager()
 	
+	Map searchCriteria=[:]
+	if (searchCustomerName != null && !searchCustomerName.trim().equals("")) {
+		searchCriteria["name"]=searchCustomerName
+	}
+
+	dbCustomerService.searchCustomer(searchCriteria)
+		
 	return Pages.CUSTOMER_LIST
   }
 
