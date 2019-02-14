@@ -31,7 +31,7 @@ public class DbCustomerService implements Serializable {
       if(value) {
         switch (value) {
           case String:
-            query+= " and $key like '${value}%'"
+            query+= " and lower($key) like '${value}%'"
             break
           default:
             query+=""
