@@ -11,8 +11,10 @@
   <ui:define name="topMenu">
     <p:menu>
       <p:submenu label="Customer">
-        <p:menuitem value="Search" icon="fa fa-search fa-fw" action="#{customerSearchController.doSearch()}"/>
-        <p:menuitem value="New" icon="fa fa-file fa-fw" />
+        <p:menuitem value="Search" icon="fa fa-search fa-fw"
+          url="/customer/customerFolder/customer.xhtml" />
+        <p:menuitem value="New" icon="fa fa-file fa-fw"
+          action="#{customerCreateController.doCreate()}" />
         <p:menuitem value="Save" icon="fa fa-save fa-fw" />
         <p:menuitem value="Reload" icon="fa fa-refresh fa-fw" />
       </p:submenu>
@@ -20,6 +22,19 @@
   </ui:define>
 
   <ui:define name="content">
-    <h1>here is your customer list</h1>
+    <p:panel>
+      <p:dataTable value="#{customerSearchController.customerList()}"
+        var="customer">
+        <p:column headerText="Name">
+          <h:outputText value="#{customer.name}" />
+        </p:column>
+        <p:column headerText="Age">
+          <h:outputText value="#{customer.age}" />
+        </p:column>
+        <p:column headerText="Gender">
+          <h:outputText value="#{customer.gender==0?'male':'female'}" />
+        </p:column>
+      </p:dataTable>
+    </p:panel>
   </ui:define>
 </ui:composition>

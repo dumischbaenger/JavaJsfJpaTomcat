@@ -11,8 +11,10 @@
   <ui:define name="topMenu">
     <p:menu>
       <p:submenu label="Customer">
-        <p:menuitem value="Search" icon="fa fa-search fa-fw" action="#{customerSearchController.doSearch()}"/>
-        <p:menuitem value="New" icon="fa fa-file fa-fw" action="#{customerCreateController.doCreate()}"/>
+        <p:menuitem value="Search" icon="fa fa-search fa-fw"
+          url="/customer/customerFolder/customer.xhtml" />
+        <p:menuitem value="New" icon="fa fa-file fa-fw"
+          action="#{customerCreateController.doCreate()}" />
         <p:menuitem value="Save" icon="fa fa-save fa-fw" />
         <p:menuitem value="Reload" icon="fa fa-refresh fa-fw" />
       </p:submenu>
@@ -21,21 +23,25 @@
 
   <ui:define name="content">
     <h:form>
-      <h:inputText id="searchCustomerName" value="#{customerSearchController.searchCustomerName}"/>
-      <h:commandButton value="Suchen" action="#{customerSearchController.doSearch()}"/>
+      <p:panelGrid columns="2" styleClass="ui-noborder">
+        <h:inputText id="searchCustomerName"
+          value="#{customerSearchController.searchCustomerName}" />
+        <h:commandButton value="Suchen"
+          action="#{customerSearchController.doSearch()}" />
+      </p:panelGrid>
     </h:form>
     <h1>administer your customers here</h1>
-         <div class="p-grid  p-dir-col">
-        <div class="p-col">
-          <div class="box">1</div>
-        </div>
-        <div class="p-col">
-          <div class="box">2</div>
-        </div>
-        <div class="p-col">
-          <div class="box">3</div>
-        </div>
+    <div class="p-grid  p-dir-col">
+      <div class="p-col">
+        <div class="box">1</div>
       </div>
-    
+      <div class="p-col">
+        <div class="box">2</div>
+      </div>
+      <div class="p-col">
+        <div class="box">3</div>
+      </div>
+    </div>
+
   </ui:define>
 </ui:composition>

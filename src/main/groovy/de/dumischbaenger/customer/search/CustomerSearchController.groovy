@@ -16,14 +16,26 @@ import de.dumischbaenger.domainmodel.Customer
 @Named("customerSearchController")
 public class CustomerSearchController implements Serializable {
   String searchCustomerName="searchName"
-	
+
   @Inject
   DbCustomerService dbCustomerService;
 
   public CustomerSearchController() {
     super();
   }
- 
+
+  public List customerList() {
+
+    println("\n\ncustomerList now\n\n")
+    
+    Map searchCriteria=[:]
+    if (searchCustomerName != null && !searchCustomerName.trim().equals("")) {
+      searchCriteria["name"]=searchCustomerName
+    }
+  
+    dbCustomerService.searchCustomer(searchCriteria)
+  }
+  
   
   public String doSearch() {
 	
@@ -39,4 +51,5 @@ public class CustomerSearchController implements Serializable {
 	return Pages.CUSTOMER_LIST
   }
 
+  
  }
