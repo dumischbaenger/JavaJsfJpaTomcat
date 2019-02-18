@@ -56,7 +56,7 @@ task jr (type: Exec) {
     cp "${project.buildDir}/libs/JavaADJSFSample.war" "${jettyDir}/webapps"
     cd "$jettyDir"
     zip -d webapps/JavaADJSFSample.war WEB-INF/lib/jandex-2.0.3.Final.jar
-    #./bin/jetty.sh check || ./bin/jetty.sh start
+    ./start.sh 
 """
   executable "bash"
   workingDir=new File(jettyDir)
