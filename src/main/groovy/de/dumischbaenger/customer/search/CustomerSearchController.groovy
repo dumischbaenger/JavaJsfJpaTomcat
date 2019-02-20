@@ -15,7 +15,7 @@ import de.dumischbaenger.domainmodel.Customer
 @SessionScoped
 @Named("customerSearchController")
 public class CustomerSearchController implements Serializable {
-  String searchCustomerName="searchName"
+  String searchCustomerName=null
 
   @Inject
   DbCustomerService dbCustomerService;
@@ -26,14 +26,17 @@ public class CustomerSearchController implements Serializable {
 
   public List customerList() {
 
-    println("\n\ncustomerList now\n\n")
+    println("\n\ncustomerList now \n\n")
     
     Map searchCriteria=[:]
     if (searchCustomerName != null && !searchCustomerName.trim().equals("")) {
       searchCriteria["name"]=searchCustomerName
     }
-  
-    dbCustomerService.searchCustomer(searchCriteria)
+    println("\n\ncustomerList now $searchCriteria\n\n")
+    
+    if(searchCriteria) {
+      dbCustomerService.searchCustomer(searchCriteria)
+    }
   }
   
   
@@ -41,12 +44,14 @@ public class CustomerSearchController implements Serializable {
 	
 	println("\n\nSearch now\n\n")
 	
-	Map searchCriteria=[:]
-	if (searchCustomerName != null && !searchCustomerName.trim().equals("")) {
-		searchCriteria["name"]=searchCustomerName
-	}
-
-	dbCustomerService.searchCustomer(searchCriteria)
+//	Map searchCriteria=[:]
+//	if (searchCustomerName != null && !searchCustomerName.trim().equals("")) {
+//		searchCriteria["name"]=searchCustomerName
+//	}
+//
+//  if(!searchCriteria.empty) {
+//    dbCustomerService.searchCustomer(searchCriteria)
+//  }
 		
 	return Pages.CUSTOMER_LIST
   }

@@ -10,15 +10,9 @@
   template="/WEB-INF/templates/defaultTemplate.xhtml">
 
   <ui:define name="topMenu">
-    <p:menu>
-      <p:submenu label="Customer">
-        <p:menuitem value="Search" icon="fa fa-search fa-fw"
-          action="#{customerSearchController.doSearch()}" />
-        <p:menuitem value="New" icon="fa fa-file fa-fw" />
-        <p:menuitem value="Save" icon="fa fa-save fa-fw" />
-        <p:menuitem value="Reload" icon="fa fa-refresh fa-fw" />
-      </p:submenu>
-    </p:menu>
+    <ui:insert>
+       <ui:include src = "customerMenu.xhtml" />
+    </ui:insert>
   </ui:define>
 
   <ui:define name="content">
