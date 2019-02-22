@@ -15,33 +15,40 @@ import de.dumischbaenger.domainmodel.Customer
 @SessionScoped
 @Named("customerCreateController")
 public class CustomerCreateController implements Serializable {
-  
+
   @Inject
   DbCustomerService dbCustomerService;
 
   Customer customer
-  
+
   public CustomerCreateController() {
     super();
   }
   
-  public String doCreate() {
-	
-	println("\n\nCreate new customer\n\n")
-	
-	customer=new Customer()
-	
-//    EntityManager em=dbAccess.getEntityManager()
-	
-	return Pages.CUSTOMER_CREATE
+  public String doEdit(Customer c) {
+
+    println("\n\nCreate new customer\n\n")
+
+    customer=c
+
+    return Pages.CUSTOMER_CREATE
   }
-  public String doSave() {
-	  
-	  println("\n\nSave customer\n\n")
-	  
-	  dbCustomerService.saveCustomer(customer)
-	  
-	  return Pages.CUSTOMER_LIST
-	}
+
+  public String doCreate() {
+
+    println("\n\nCreate new customer\n\n")
+
+    customer=new Customer()
+
+    return Pages.CUSTOMER_CREATE
+  }
   
- }
+  public String doSave() {
+
+    println("\n\nSave customer\n\n")
+
+    dbCustomerService.saveCustomer(customer)
+
+    return Pages.CUSTOMER_LIST
+  }
+}

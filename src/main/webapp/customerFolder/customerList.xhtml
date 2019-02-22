@@ -16,20 +16,22 @@
 
   <ui:define name="content">
     <p:panel>
+<h:form>
       <p:dataTable styleClass="ui-table-header-align-left" value="#{customerSearchController.customerList()}"
         var="customer">
         <f:facet name="header">
-            <h:form>
               <h:inputText id="searchCustomerName"
                 value="#{customerSearchController.searchCustomerName}" />
               <p:spacer width="10" height="1" />                
-              <h:commandButton value="Suchen"
-                action="#{customerSearchController.doSearch()}" />
-            </h:form>
+              <p:commandButton value="Suchen"
+                url="/customer/customerFolder/customerList.xhtml" ajax="false"/>
         </f:facet>
 
         <p:column headerText="Name">
+          <ui:remove>
           <h:outputText value="#{customer.name}" />
+          </ui:remove>
+          <p:commandLink value="#{customer.name}" action="#{customerCreateController.doEdit(customer)}" ajax="false"/>
         </p:column>
         <p:column headerText="Age">
           <h:outputText value="#{customer.age}" />
@@ -38,6 +40,7 @@
           <h:outputText value="#{customer.gender==0?'male':'female'}" />
         </p:column>
       </p:dataTable>
+</h:form>        
     </p:panel>
   </ui:define>
 </ui:composition>

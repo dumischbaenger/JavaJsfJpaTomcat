@@ -64,7 +64,13 @@ public class DbCustomerService implements Serializable {
 	EntityManager entityManager=dbAccess.entityManager
     EntityTransaction tx=entityManager.getTransaction()
     tx.begin()
-    entityManager.persist(c)
+    if(c.id) {
+      println("\n\nmerge customer\n\n")
+      c=entityManager.merge(c)
+    } else {
+      println("\n\npersist customer\n\n")
+      entityManager.persist(c)
+    }
     tx.commit()
 
     c
