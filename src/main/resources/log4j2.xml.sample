@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--this is a sample configuration file for log4j2; something like this has to be placed in ../jetty/resources/log4j2.xml -->
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{ISO8601} ${sys:user.name} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		<!-- ${sys:jetty.base} -->
+		<File name="fileapp" fileName="${sys:jetty.base}/logs/webapps.log">
+			<PatternLayout pattern="%d{ISO8601} ${sys:user.name} [%t] %-5level %logger{36} - %msg%n" />
+		</File>
+	</Appenders>
+	<Loggers>
+        <Logger name="de" level="info" additivity="false">
+          <AppenderRef ref="Console"/>
+          <AppenderRef ref="fileapp" />
+        </Logger>
+		<Root level="info">
+          <AppenderRef ref="Console" />
+          <AppenderRef ref="fileapp" />
+		</Root>
+	</Loggers>
+</Configuration>

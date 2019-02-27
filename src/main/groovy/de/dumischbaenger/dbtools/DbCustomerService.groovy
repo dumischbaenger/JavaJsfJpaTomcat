@@ -8,8 +8,9 @@ import javax.persistence.EntityTransaction
 import javax.persistence.Persistence
 
 import de.dumischbaenger.domainmodel.Customer
+import groovy.util.logging.Slf4j
 
-
+@Slf4j
 @SessionScoped
 @Named("dbCustomerService")
 public class DbCustomerService implements Serializable {
@@ -22,7 +23,7 @@ public class DbCustomerService implements Serializable {
   }
   
   List searchCustomer(Map searchCriteria) {
-//    log.info("search criteria: $searchCriteria")
+    log.info("search criteria: $searchCriteria")
     List customer=[]
 
     String query="select c from Customer c where 1=1 "
@@ -40,8 +41,6 @@ public class DbCustomerService implements Serializable {
     }
     customer=dbAccess.getEntityManager().createQuery(query).getResultList().collect()
     
-//    log.info("personen: $persons")
-
     customer
   }
   
@@ -57,9 +56,7 @@ public class DbCustomerService implements Serializable {
 //  
   
   Customer saveCustomer(Customer c) {
-//    log.info("save person: $c")
-	
-	println("\n\nSave customer\n\n")
+    log.info("save cutomer: $c")
 	
 	EntityManager entityManager=dbAccess.entityManager
     EntityTransaction tx=entityManager.getTransaction()
