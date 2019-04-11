@@ -11,7 +11,9 @@ import de.dumischbaenger.customer.Pages
 import de.dumischbaenger.dbtools.DbAccess
 import de.dumischbaenger.dbtools.DbCustomerService
 import de.dumischbaenger.domainmodel.Customer
+import groovy.util.logging.Slf4j
 
+@Slf4j
 @SessionScoped
 @Named("customerCreateController")
 public class CustomerCreateController implements Serializable {
@@ -26,8 +28,7 @@ public class CustomerCreateController implements Serializable {
   }
   
   public String doEdit(Customer c) {
-
-    println("\n\nCreate new customer\n\n")
+    log.info("edit customer")
 
     customer=c
 
@@ -35,18 +36,16 @@ public class CustomerCreateController implements Serializable {
   }
 
   public String doCreate() {
-
-    println("\n\nCreate new customer\n\n")
-
+    log.info("create customer")
+    
     customer=new Customer()
 
     return Pages.CUSTOMER_CREATE
   }
   
   public String doSave() {
-
-    println("\n\nSave customer\n\n")
-
+    log.info("save customer")
+    
     dbCustomerService.saveCustomer(customer)
 
     return Pages.CUSTOMER_LIST

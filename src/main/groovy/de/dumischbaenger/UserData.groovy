@@ -7,6 +7,9 @@ import javax.faces.bean.SessionScoped
 import javax.faces.context.FacesContext
 import javax.servlet.http.HttpSession
 
+import groovy.util.logging.Slf4j
+
+@Slf4j
 @RequestScoped
 @ManagedBean(name = "UserData")
 public class UserData implements Serializable {
@@ -30,9 +33,10 @@ public class UserData implements Serializable {
     Object username=session.getAttribute("de.dumischbaenger.jetty.username");
     Object password=session.getAttribute("de.dumischbaenger.jetty.password");
 
-    //String result= count++ + " " +  username + " " + new Date() + " " + password.toString().charAt(0);
-	String result=username;
-	
+    log.info("username requested: session username is $username, session password ${password?.trim()?.length()>0?'is':'is not'} present")
+
+    String result=username;
+
     return result;
   }
 

@@ -11,7 +11,9 @@ import de.dumischbaenger.customer.Pages
 import de.dumischbaenger.dbtools.DbAccess
 import de.dumischbaenger.dbtools.DbCustomerService
 import de.dumischbaenger.domainmodel.Customer
+import groovy.util.logging.Slf4j
 
+@Slf4j
 @SessionScoped
 @Named("customerSearchController")
 public class CustomerSearchController implements Serializable {
@@ -26,13 +28,12 @@ public class CustomerSearchController implements Serializable {
 
   public List customerList() {
 
-    println("\n\ncustomerList now \n\n")
-    
     Map searchCriteria=[:]
     if (searchCustomerName != null && !searchCustomerName.trim().equals("")) {
       searchCriteria["name"]=searchCustomerName
     }
-    println("\n\ncustomerList now $searchCriteria\n\n")
+    
+    log.info("customerList $searchCriteria")
     
     if(searchCriteria) {
       dbCustomerService.searchCustomer(searchCriteria)
@@ -41,8 +42,8 @@ public class CustomerSearchController implements Serializable {
   
   
   public String doSearch() {
-	
-	println("\n\nSearch now\n\n")
+
+    log.info("doSearch")
 	
 //	Map searchCriteria=[:]
 //	if (searchCustomerName != null && !searchCustomerName.trim().equals("")) {
