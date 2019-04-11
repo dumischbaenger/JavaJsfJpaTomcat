@@ -7,7 +7,9 @@ import javax.persistence.EntityManagerFactory
 import javax.persistence.Persistence
 
 import de.dumischbaenger.customer.Pages
+import groovy.util.logging.Slf4j
 
+@Slf4j
 @SessionScoped
 @Named("dbAccess")
 public class DbAccess implements Serializable {
@@ -20,10 +22,10 @@ public class DbAccess implements Serializable {
   
   EntityManagerFactory entityManagerFactory
   public EntityManager getEntityManager() {
-    println("\n\nget entity manager 1\n\n")
+    log.info("get entity manager")
     
     if(entityManagerFactory==null) {
-      println("\n\nbuild factory\n\n")
+      log.info("build entity manager factory")
       entityManagerFactory = Persistence.createEntityManagerFactory("exampledb");
     }
     EntityManager em = entityManagerFactory.createEntityManager();
