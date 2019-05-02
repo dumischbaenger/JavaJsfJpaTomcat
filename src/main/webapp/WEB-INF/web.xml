@@ -14,11 +14,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/unprotected/*</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/customer/*</url-pattern>
+    <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
   <context-param>
     <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
@@ -65,9 +61,7 @@
       <url-pattern>/customer/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
-      <description>
-           constraint for protected faces
-          </description>
+      <description>constraint for protected faces</description>
       <role-name>testuser</role-name>
       <role-name>Abteilung_Sekretariat</role-name>
       <role-name>Abteilung_IT</role-name>
