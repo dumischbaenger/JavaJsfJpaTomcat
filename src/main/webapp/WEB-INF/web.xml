@@ -85,6 +85,9 @@
   <security-role>
     <role-name>Abteilung_Sekretariat</role-name>
   </security-role>
+  <security-role>
+    <role-name>Abteilung_IT</role-name>
+  </security-role>
   <login-config>
     <auth-method>BASIC</auth-method>
     <realm-name>MyJAASRealm</realm-name>
