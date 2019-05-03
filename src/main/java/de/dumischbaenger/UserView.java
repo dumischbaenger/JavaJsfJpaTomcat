@@ -9,7 +9,7 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean(name = "userView")
 public class UserView implements Serializable { 
-
+  private static final long serialVersionUID = 1L;
   private String  name  = "Java John";
 
   public UserView() {
