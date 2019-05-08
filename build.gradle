@@ -57,6 +57,7 @@ task jr (type: Exec) {
   
   //BD strange behavior of jetty: if jandex... is in the jar file jetty throws an exception
   def script=""" 
+    rm -rf $tomEEDir/webapps/JavaJsfJpaTomcat* 
     cp "${project.buildDir}/libs/JavaJsfJpaTomcat.war" "${tomEEDir}/webapps"
     cd "$tomEEDir"
     #zip -d webapps/JavaADJSFSample.war WEB-INF/lib/jandex-2.0.5.Final.jar
