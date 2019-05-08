@@ -40,9 +40,6 @@
     <param-name>primefaces.MOVE_SCRIPTS_TO_BOTTOM</param-name>
     <param-value>true</param-value>
   </context-param>
-  <listener>
-    <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
-  </listener>
 
   <!-- deny access to all URLs that do not have a mapping -->
   <!-- <security-constraint> <display-name>Restrict direct access to certain 
@@ -86,11 +83,6 @@
     <auth-method>BASIC</auth-method>
     <realm-name>MyJAASRealm</realm-name>
   </login-config>
-
-  <!-- CDI Weld setup -->
-  <listener>
-    <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
-  </listener>
 
   <resource-env-ref>
     <description>Object factory for the CDI Bean Manager</description>
