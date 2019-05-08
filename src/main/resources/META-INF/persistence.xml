@@ -10,11 +10,16 @@
                 value="jdbc:derby:/tmp/DerbyJavaADJSFSample;create=true" />
             <property name="javax.persistence.jdbc.user" value="test" />
             <property name="javax.persistence.jdbc.password" value="test" />
+            <property name="openjpa.jdbc.DBDictionary" value="derby(NextSequenceQuery=VALUES NEXT VALUE FOR {0})"/>
+<!--             <property name="openjpa.Log" value="DefaultLevel=TRACE,SQL=TRACE" />    -->
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(SchemaAction=add,ForeignKeys=true)" />         
 
-            <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" /> -->
+<!--
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" /> 
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
+-->
 
             <!--
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
