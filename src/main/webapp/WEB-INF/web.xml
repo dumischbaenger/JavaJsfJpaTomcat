@@ -47,6 +47,11 @@
     folders</web-resource-name> <url-pattern>/*</url-pattern> </web-resource-collection> 
     <auth-constraint /> </security-constraint> -->
 
+    <resource-ref>
+        <res-ref-name>jdbc/derby</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+    </resource-ref>
+
 
   <security-constraint>
     <web-resource-collection>

@@ -5,7 +5,7 @@ import javax.inject.Inject
 import javax.inject.Named
 import javax.persistence.EntityManager
 import javax.persistence.EntityTransaction
-import javax.persistence.Persistence
+import javax.persistence.PersistenceContext
 
 import de.dumischbaenger.domainmodel.Customer
 import groovy.util.logging.Slf4j
@@ -14,6 +14,9 @@ import groovy.util.logging.Slf4j
 @SessionScoped
 @Named("dbCustomerService")
 public class DbCustomerService implements Serializable {
+  
+  @PersistenceContext(unitName="exampledb")
+  EntityManager entityManager
 
   @Inject
   DbAccess dbAccess

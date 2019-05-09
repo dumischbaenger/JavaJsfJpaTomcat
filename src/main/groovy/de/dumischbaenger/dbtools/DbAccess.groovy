@@ -5,8 +5,8 @@ import javax.inject.Named
 import javax.persistence.EntityManager
 import javax.persistence.EntityManagerFactory
 import javax.persistence.Persistence
+import javax.persistence.PersistenceUnit
 
-import de.dumischbaenger.customer.Pages
 import groovy.util.logging.Slf4j
 
 @Slf4j
@@ -14,19 +14,26 @@ import groovy.util.logging.Slf4j
 @Named("dbAccess")
 public class DbAccess implements Serializable {
 
-//  static EntityManagerFactory entityManagerFactory=null
+  Integer references=0
+  
+  @PersistenceUnit(unitName="exampledb")
+  EntityManagerFactory entityManagerFactory
   
   public DbAccess() {
     super();
   }
   
-  EntityManagerFactory entityManagerFactory
+  
   public EntityManager getEntityManager() {
     log.info("get entity manager")
     
+    references++
+    
     if(entityManagerFactory==null) {
-      log.info("build entity manager factory")
+      log.info("build entity manager factory $references")
       entityManagerFactory = Persistence.createEntityManagerFactory("exampledb");
+    } else {
+      log.info(" entity manager factory exists $references")
     }
     EntityManager em = entityManagerFactory.createEntityManager();
   
