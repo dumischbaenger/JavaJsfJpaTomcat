@@ -17,7 +17,9 @@ repositories {
 dependencies {
   providedCompile 'com.sun.faces:jsf-api:2.2.18'
   providedCompile 'com.sun.faces:jsf-impl:2.2.18'
-  implementation 'org.codehaus.groovy:groovy-all:2.5.5'
+//  implementation 'org.codehaus.groovy:groovy-all:2.5.5'
+  implementation 'org.codehaus.groovy:groovy-all:2.4.13'
+  
 //  implementation "org.slf4j:slf4j-simple:1.7.25"
   implementation 'org.apache.logging.log4j:log4j-core:2.10.0'
   implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.10.0'
@@ -56,7 +58,9 @@ task jr (type: Exec) {
   dependsOn war
   
   //BD strange behavior of jetty: if jandex... is in the jar file jetty throws an exception
-  def script=""" 
+  def script="""
+    #sleep 2 
+    #pkill -f tomcat-juli.jar
     rm -rf $tomEEDir/webapps/JavaJsfJpaTomcat* 
     cp "${project.buildDir}/libs/JavaJsfJpaTomcat.war" "${tomEEDir}/webapps"
     cd "$tomEEDir"
