@@ -1,4 +1,4 @@
 
 = this is a heading
 
-include::a.txt[]
+include::a.adoc[]
