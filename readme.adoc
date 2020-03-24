@@ -1,3 +1,4 @@
 
 = this is a heading
 
+include::a.txt[]
